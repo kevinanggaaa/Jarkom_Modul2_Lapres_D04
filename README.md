@@ -27,11 +27,11 @@ kurang bagus, maka (9) diaktifkan mod rewrite agar urlnya menjadi http://semeruy
 memiliki DocumentRoot pada /var/www/penanjakan.semeruyyy.pw dan memiliki struktur
 folder sebagai berikut:
 
-/var/www/penanjakan.semeruyyy.pw
-/public/javascripts
-/public/css
-/public/images
-/errors
+/var/www/penanjakan.semeruyyy.pw  
+/public/javascripts  
+/public/css  
+/public/images  
+/errors  
 
 (11) Pada folder /public dibolehkan directory listing namun untuk folder yang berada di dalamnya
 tidak dibolehkan. (12) Untuk mengatasi HTTP Error code 404, disediakan file 404.html pada
