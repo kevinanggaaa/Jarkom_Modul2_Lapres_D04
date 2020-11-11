@@ -28,7 +28,7 @@ memiliki DocumentRoot pada /var/www/penanjakan.semeruyyy.pw dan memiliki struktu
 folder sebagai berikut:
 
 /var/www/penanjakan.semeruyyy.pw  
-/public/javascripts  
+<pre>/public/javascripts</pre>  
 /public/css  
 /public/images  
 /errors  
