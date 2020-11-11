@@ -462,7 +462,6 @@ allow-query{any;};
 5.
 6.
 7.
-
 8. Langkah awalnya dengan membuat direktori pada /var/www, dengan perintah `mkdir /var/www/semerud04.pw`. Setelah itu buatlah file config untuk file semerud04.pw, yaitu dengan menjalankan perintah `cp /etc/apache2/site-available/default /etc/apache2/sites-available/semerud04.pw`. Lalu buka file tersebut dengan `nano /etc/apache2/sites-available/semerud04.pw` dan ubah file menjadi seperti gambar dibawah ini :
 
 ![semerud04.pw](/img/no-8.png)
@@ -503,7 +502,7 @@ RewriteRule &([^\.]+)$ index.php/$1 [NC,L] -> segala url yang berawalan /index.p
 
 ![semerud04.pw](/img/no-10.png)
 
-Setelah itu, save dan exit. Lalu aktifkan file tersebut dengan perintah `a2ensite semerud04.pw` dan berikutnya perintah `service apache2 restart`.
+Setelah itu, save dan exit. Lalu aktifkan file tersebut dengan perintah `a2ensite penanjakan.semerud04.pw` dan berikutnya perintah `service apache2 restart`.
 
 Lalu jalankan perintah berikut ini :
 
