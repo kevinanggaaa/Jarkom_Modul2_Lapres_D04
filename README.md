@@ -458,7 +458,12 @@ allow-query{any;};
 
    Salah satu aturan penulisan NS record adalah dia harus menuju A record., bukan CNAME.
 
-4. Langkah awalnya dengan membuat direktori pada /var/www, dengan perintah `mkdir /var/www/semerud04.pw`. Setelah itu buatlah file config untuk file semerud04.pw, yaitu dengan menjalankan perintah `cp /etc/apache2/site-available/default /etc/apache2/sites-available/semerud04.pw`. Lalu buka file tersebut dengan `nano /etc/apache2/sites-available/semerud04.pw` dan ubah file menjadi seperti gambar dibawah ini :
+4.
+5.
+6.
+7.
+
+8. Langkah awalnya dengan membuat direktori pada /var/www, dengan perintah `mkdir /var/www/semerud04.pw`. Setelah itu buatlah file config untuk file semerud04.pw, yaitu dengan menjalankan perintah `cp /etc/apache2/site-available/default /etc/apache2/sites-available/semerud04.pw`. Lalu buka file tersebut dengan `nano /etc/apache2/sites-available/semerud04.pw` dan ubah file menjadi seperti gambar dibawah ini :
 
 ![semerud04.pw](/img/no-8.png)
 
