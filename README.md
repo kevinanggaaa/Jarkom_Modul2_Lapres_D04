@@ -1,21 +1,5 @@
 # Jarkom_Modul2_Lapres_D04
-
-1. Disarankan untuk mengganti password user kelompok.
-2. [SARAN] Selalu mem-backup konfigurasi pada setiap UML untuk mengantisipasi kejadian yang tidak
-diinginkan. Back up disimpan di luar UML.
-3. yyy adalah nama kelompok (misal a01).
-4. IP Server Probolinggo : NID_DMZ_tiap_kelompok + 4 (Untuk IP yang lainnya tetap sama).
-5. Jika tidak bisa menginstall php5 maka gunakan php7.0.
-6. File pendukung:
-a. File/folder pendukung untuk web http://semeruyyy.pw bisa di download dengan cara:
-wget 10.151.36.202/semeru.pw.zip
-b. File/folder pendukung untuk web http://penanjakan.semeruyyy.pw bisa di download dengan cara:
-wget 10.151.36.202/penanjakan.semeru.pw.zip
-c. File/folder pendukung untuk web http://naik.gunung.semeruyyy.pw bisa di download dengan cara:
-wget 10.151.36.202/naik.gunung.semeru.pw.zip
-
-SOAL
-
+## SOAL
 Semeru adalah salah satu gunung yang terkenal di Jawa Timur. Bibah adalah salah satu juru kunci
 Semeru. Bibah ingin menyebarkan keindahan Semeru pada dunia sehingga dia membeli 3 buah server
 yang berada di MALANG, MOJOKERTO dan PROBOLINGGO. Server MALANG akan digunakan
@@ -23,6 +7,7 @@ sebagai DNS Server Master, MOJOKERTO akan digunakan sebagai DNS Server Slave dan
 PROBOLINGGO akan digunakan sebagai Web Server. Selain 3 server terdapat 2 klien yang digunakan
 untuk testing oleh Bibah yaitu GRESIK dan SIDOARJO. Untuk menyambungkan semua jaringan
 tersebut Bibah memberi router di SURABAYA.
+
 Kalian diminta untuk membuat sebuah website utama dengan (1) alamat http://semeruyyy.pw yang
 memiliki (2) alias http://www.semeruyyy.pw, dan (3) subdomain http://penanjakan.semeruyyy.pw
 yang diatur DNS-nya pada MALANG dan mengarah ke IP Server PROBOLINGGO serta dibuatkan (4)
@@ -33,16 +18,16 @@ http://gunung.semeruyyy.pw yang didelegasikan pada server MOJOKERTO dan mengarah
 Server PROBOLINGGO. Bibah juga ingin memberi petunjuk mendaki gunung semeru kepada anggota
 komunitas sehingga dia meminta dibuatkan (7) subdomain dengan nama
 http://naik.gunung.semeruyyy.pw, domain ini diarahkan ke IP Server PROBOLINGGO.
+
 Setelah selesai membuat keseluruhan domain, kamu diminta untuk segera mengatur web server. (8)
 Domain http://semeruyyy.pw memiliki DocumentRoot pada /var/www/semeruyyy.pw. Awalnya web
 dapat diakses menggunakan alamat http://semeruyyy.pw/index.php/home. Karena dirasa alamat urlnya
 kurang bagus, maka (9) diaktifkan mod rewrite agar urlnya menjadi http://semeruyyy.pw/home.
 (10) Web http://penanjakan.semeruyyy.pw akan digunakan untuk menyimpan assets file yang
-
 memiliki DocumentRoot pada /var/www/penanjakan.semeruyyy.pw dan memiliki struktur
 folder sebagai berikut:
-/var/www/penanjakan.semeruyyy.pw
 
+/var/www/penanjakan.semeruyyy.pw
 /public/javascripts
 /public/css
 /public/images
