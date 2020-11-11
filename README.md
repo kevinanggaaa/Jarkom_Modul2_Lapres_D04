@@ -611,3 +611,7 @@ RewriteCond %{REQUEST_FILENAME} -f -> Mengecek apakah request image yang kita bu
 RewriteCond %{REQUEST_URI} ! /public/images/semeru.jpg [NC] -> mengecek apakah file yang sedang kita buka merupakan file semeru.jpg
 RewriteRule ^public/images/(.*)semeru(.*).jpg$ /public/images/$1semeru.jpg[L,R] -> Jika membuka file yang mengandung substring semeru pada folder /public/images, akan di redirect ke /public/images/semeru.jpg selama kedua kondisi diatas terpenuh
 ```
+
+Jika mengakses url http://penanjakan.semerud04.pw/public/images/bukansemeruaja.jpg akan meredirect seperti gambar berikut:
+
+![semerud04.pw](/img/no-17-part-2.png)
