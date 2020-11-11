@@ -1,5 +1,6 @@
 # Jarkom_Modul2_Lapres_D04
 ## SOAL
+![image](https://user-images.githubusercontent.com/60419316/98804307-99b5b600-2448-11eb-9010-68e7223879b8.png)
 Semeru adalah salah satu gunung yang terkenal di Jawa Timur. Bibah adalah salah satu juru kunci
 Semeru. Bibah ingin menyebarkan keindahan Semeru pada dunia sehingga dia membeli 3 buah server
 yang berada di MALANG, MOJOKERTO dan PROBOLINGGO. Server MALANG akan digunakan
@@ -52,3 +53,5 @@ dirasa kurang profesional, maka setiap Bibah mengunjungi IP PROBOLINGGO akan dia
 secara otomatis ke http://semeruyyy.pw. (17) Karena pengunjung pada
 /var/www/penanjakan.semeruyyy.pw/public/images sangat banyak maka semua request gambar
 yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg.
+
+## JAWABAN  
