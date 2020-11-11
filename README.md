@@ -63,7 +63,7 @@ yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg.
 
 - Membuat topologi berdasarkan foto pada soal.
 
-### 2. Instalasi bind
+#### Instalasi bind
 
 - Buka _MALANG_ dan update package lists dengan menjalankan command:
 
@@ -77,7 +77,7 @@ yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg.
   apt-get install bind9 -y
   ```
 
-### 3. Pembuatan Domain
+#### Pembuatan Domain
 
 Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud04.pw**.
 
@@ -122,7 +122,7 @@ Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud
   service bind9 restart
   ```
 
-### 4. Setting nameserver pada client
+#### Setting nameserver pada client
 
 Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu kita harus merubah settingan nameserver yang ada pada client kita.
 
