@@ -63,7 +63,7 @@ yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg.
 
 - Membuat topologi berdasarkan foto pada soal.
 
-### 2. Instalasi bind
+#### Instalasi bind
 
 - Buka _MALANG_ dan update package lists dengan menjalankan command:
 
@@ -77,7 +77,7 @@ yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg.
   apt-get install bind9 -y
   ```
 
-### 3. Pembuatan Domain
+#### Pembuatan Domain
 
 Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud04.pw**.
 
@@ -114,7 +114,7 @@ Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud
   nano /etc/bind/jarkom/jarkom2020.com
   ```
 
-![konfig jarkom2020](gambar/3.png)
+![image](https://user-images.githubusercontent.com/60419316/98816196-e0141080-245a-11eb-9410-f21e587f6b40.png)
 
 - Restart bind9 dengan perintah
 
@@ -122,7 +122,7 @@ Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud
   service bind9 restart
   ```
 
-### 4. Setting nameserver pada client
+#### Setting nameserver pada client
 
 Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu kita harus merubah settingan nameserver yang ada pada client kita.
 
