@@ -29,9 +29,9 @@ folder sebagai berikut:
 
 /var/www/penanjakan.semeruyyy.pw  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;/public/javascripts  
-/public/css  
-/public/images  
-/errors  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;/public/css  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;/public/images  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;/errors  
 
 (11) Pada folder /public dibolehkan directory listing namun untuk folder yang berada di dalamnya
 tidak dibolehkan. (12) Untuk mengatasi HTTP Error code 404, disediakan file 404.html pada
