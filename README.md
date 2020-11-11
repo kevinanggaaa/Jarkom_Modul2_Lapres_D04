@@ -55,10 +55,10 @@ secara otomatis ke http://semeruyyy.pw. (17) Karena pengunjung pada
 yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg.
 
 ## JAWABAN
-### Membuat DNS
+### 1. Membuat DNS
 - Membuat topologi berdasarkan foto pada soal.
 
-### Instalasi bind
+### 2. Instalasi bind
 
 - Buka *MALANG* dan update package lists dengan menjalankan command:
 
@@ -72,7 +72,7 @@ yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg.
 	apt-get install bind9 -y
 	```
 
-### Pembuatan Domain
+### 3. Pembuatan Domain
 Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud04.pw**.
 
 - Lakukan perintah pada *MALANG*. Isikan seperti berikut:
@@ -114,10 +114,9 @@ Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud
 
   ```
   service bind9 restart
-  
   ```
   
-### Setting nameserver pada client
+### 4. Setting nameserver pada client
 
 Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu kita harus merubah settingan nameserver yang ada pada client kita.
 
@@ -138,7 +137,7 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
 ![ping](gambar/5.png)
 
 
-### Menambah alias menggunakan Record CNAME
+### 5. Menambah alias menggunakan Record CNAME
 
 - Buka file **semerud04.pw** pada server *MALANG* dan tambahkan konfigurasi seperti pada gambar berikut:
 
@@ -159,7 +158,7 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
 ![DNS](gambar/10.png)
 
 
-### Membuat Subdomain http://penanjakan.semeruyyy.pw yang diatur DNS-nya pada MALANG dan mengarah ke IP Server PROBOLINGGO `10.151.79.44`
+### 6. Membuat Subdomain http://penanjakan.semeruyyy.pw yang diatur DNS-nya pada MALANG dan mengarah ke IP Server PROBOLINGGO `10.151.79.44`
 
 - Edit file **/etc/bind/jarkom/semerud04.pw** lalu tambahkan subdomain untuk **semerud04.pw** yang mengarah ke IP *MALANG*.
 
@@ -187,7 +186,7 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
   ![DNS](gambar/16.png)
 
 
-### Reverse domain untuk domain utama
+### 7. Reverse domain untuk domain utama
 
 - Edit file **/etc/bind/named.conf.local** pada *MALANG*
 
@@ -238,9 +237,9 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
 ![host](gambar/8.png)
 
 
-### Membuat DNS Server Slave pada MOJOKERTO
+### 8. Membuat DNS Server Slave pada MOJOKERTO
 
-#### Konfigurasi Pada Server MALANG
+#### 8.1. Konfigurasi Pada Server MALANG
 
 - Edit file **/etc/bind/named.conf.local** dan sesuaikan dengan syntax berikut
 
@@ -266,7 +265,7 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
 
 
 
-#### II. Konfigurasi Pada Server MOJOKERTO
+#### 8.2. Konfigurasi Pada Server MOJOKERTO
 
 - Buka *MOJOKERTO* dan update package lists dengan menjalankan command:
 
@@ -300,7 +299,7 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
 
 
 
-#### III. Testing
+#### 8.3. Testing
 
 - Pada server *MALANG* silahkan matikan service bind9
 
@@ -308,11 +307,11 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
   service bind9 stop
   ```
 
-- Pada client *GRESIK* pastikan pengaturan nameserver mengarah ke IP *MALANG* dan IP *MOJOKERTO*
+- Pada client *GRESIK* pastikan pengaturan nameserver mengarah ke IP *MALANG* `10.151.79.42` dan IP *MOJOKERTO* `10.151.79.43`
 
   ![DNS](gambar/13.png)
 
-- Lakukan ping ke jarkom2020.com pada client *GRESIK*. Jika ping berhasil maka konfigurasi DNS slave telah berhasil
+- Lakukan ping ke semerud04.pw pada client *GRESIK*. Jika ping berhasil maka konfigurasi DNS slave telah berhasil
 
 
 ![DNS](gambar/14.png)
