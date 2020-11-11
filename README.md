@@ -1,12 +1,9 @@
 # Jarkom_Modul2_Lapres_D04
 
 ## SOAL
-<<<<<<< Updated upstream
-![image](https://user-images.githubusercontent.com/60419316/98804307-99b5b600-2448-11eb-9010-68e7223879b8.png)  
-=======
 
 ![image](https://user-images.githubusercontent.com/60419316/98804307-99b5b600-2448-11eb-9010-68e7223879b8.png)
->>>>>>> Stashed changes
+
 Semeru adalah salah satu gunung yang terkenal di Jawa Timur. Bibah adalah salah satu juru kunci
 Semeru. Bibah ingin menyebarkan keindahan Semeru pada dunia sehingga dia membeli 3 buah server
 yang berada di MALANG, MOJOKERTO dan PROBOLINGGO. Server MALANG akan digunakan
@@ -61,28 +58,30 @@ secara otomatis ke http://semeruyyy.pw. (17) Karena pengunjung pada
 yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg.
 
 ## JAWABAN
-<<<<<<< Updated upstream
+
 ### 1. Membuat DNS
+
 - Membuat topologi berdasarkan foto pada soal.
 
 ### 2. Instalasi bind
 
-- Buka *MALANG* dan update package lists dengan menjalankan command:
+- Buka _MALANG_ dan update package lists dengan menjalankan command:
 
-	```
-	apt-get update
-	```
+  ```
+  apt-get update
+  ```
 
-- Setalah melakukan update, install aplikasi bind9 pada *MALANG* dengan perintah:
+- Setalah melakukan update, install aplikasi bind9 pada _MALANG_ dengan perintah:
 
-	```
-	apt-get install bind9 -y
-	```
+  ```
+  apt-get install bind9 -y
+  ```
 
 ### 3. Pembuatan Domain
+
 Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud04.pw**.
 
-- Lakukan perintah pada *MALANG*. Isikan seperti berikut:
+- Lakukan perintah pada _MALANG_. Isikan seperti berikut:
 
   ```
    nano /etc/bind/named.conf.local
@@ -109,7 +108,7 @@ Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud
   cp /etc/bind/db.local /etc/bind/jarkom/semerud04.pw
   ```
 
-- Kemudian buka file **semerud04.pw** dan edit seperti gambar berikut dengan IP *MALANG* , yaitu `10.151.79.42`
+- Kemudian buka file **semerud04.pw** dan edit seperti gambar berikut dengan IP _MALANG_ , yaitu `10.151.79.42`
 
   ```
   nano /etc/bind/jarkom/jarkom2020.com
@@ -117,25 +116,25 @@ Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud
 
 ![konfig jarkom2020](gambar/3.png)
 
-- Restart bind9 dengan perintah 
+- Restart bind9 dengan perintah
 
   ```
   service bind9 restart
   ```
-  
+
 ### 4. Setting nameserver pada client
 
 Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu kita harus merubah settingan nameserver yang ada pada client kita.
 
-- Pada client *GRESIK* dan *SIDOARJO* arahkan nameserver menuju IP *MALANG* `10.151.79.42` dengan mengedit file _resolv.conf_ dengan mengetikkan perintah 
+- Pada client _GRESIK_ dan _SIDOARJO_ arahkan nameserver menuju IP _MALANG_ `10.151.79.42` dengan mengedit file _resolv.conf_ dengan mengetikkan perintah
 
-	```
-	nano /etc/resolv.conf
-	```
+  ```
+  nano /etc/resolv.conf
+  ```
 
 ![ping](gambar/4.png)
 
-- Untuk mencoba koneksi DNS, lakukan ping domain **semerud04.pw** dengan melakukan  perintah berikut pada client *GRESIK* dan *SIDOARJO*
+- Untuk mencoba koneksi DNS, lakukan ping domain **semerud04.pw** dengan melakukan perintah berikut pada client _GRESIK_ dan _SIDOARJO_
 
   ```
   ping jarkom2020.com
@@ -143,15 +142,11 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
 
 ![ping](gambar/5.png)
 
-
 ### 5. Menambah alias menggunakan Record CNAME
 
-- Buka file **semerud04.pw** pada server *MALANG* dan tambahkan konfigurasi seperti pada gambar berikut:
-
+- Buka file **semerud04.pw** pada server _MALANG_ dan tambahkan konfigurasi seperti pada gambar berikut:
 
 ![DNS](gambar/9.png)
-
-
 
 - Kemudian restart bind9 dengan perintah
 
@@ -159,15 +154,13 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
   service bind9 restart
   ```
 
-- Lalu cek dengan melakukan **ping www.semerud04.pw**. Hasilnya harus mengarah ke host dengan IP *MALANG* `10.151.79.42`.
-
+- Lalu cek dengan melakukan **ping www.semerud04.pw**. Hasilnya harus mengarah ke host dengan IP _MALANG_ `10.151.79.42`.
 
 ![DNS](gambar/10.png)
 
-
 ### 6. Membuat Subdomain http://penanjakan.semeruyyy.pw yang diatur DNS-nya pada MALANG dan mengarah ke IP Server PROBOLINGGO `10.151.79.44`
 
-- Edit file **/etc/bind/jarkom/semerud04.pw** lalu tambahkan subdomain untuk **semerud04.pw** yang mengarah ke IP *MALANG*.
+- Edit file **/etc/bind/jarkom/semerud04.pw** lalu tambahkan subdomain untuk **semerud04.pw** yang mengarah ke IP _MALANG_.
 
   ```
   nano /etc/bind/jarkom/semerud04.pw
@@ -177,25 +170,24 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
 
 ![DNS](gambar/15.png)
 
-- Restart service bind  
+- Restart service bind
 
   ```
   service bind9 restart
   ```
 
-- Coba ping ke subdomain dengan perintah berikut dari client *GRESIK*
+- Coba ping ke subdomain dengan perintah berikut dari client _GRESIK_
 
   ```
   ping penanjakan.semerud04.pw
-  
+
   ```
 
   ![DNS](gambar/16.png)
 
-
 ### 7. Reverse domain untuk domain utama
 
-- Edit file **/etc/bind/named.conf.local** pada *MALANG*
+- Edit file **/etc/bind/named.conf.local** pada _MALANG_
 
   ```
   nano /etc/bind/named.conf.local
@@ -220,29 +212,27 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
 
 - Edit file **79.151.10.in-addr.arpa** menjadi seperti gambar di bawah ini
 
-
 ![konfig](gambar/7.png)
 
-- Kemudian restart bind9 dengan perintah 
+- Kemudian restart bind9 dengan perintah
 
   ```
   service bind9 restart
   ```
 
-- Untuk mengecek apakah konfigurasi sudah benar atau belum, lakukan perintah berikut pada client *GRESIK* 
+- Untuk mengecek apakah konfigurasi sudah benar atau belum, lakukan perintah berikut pada client _GRESIK_
 
   ```
   // Install package dnsutils
   // Pastikan nameserver telah dikembalikan ke settingan awal
   apt-get update
   apt-get install dnsutils
-  
+
   //Kembalikan nameserver agar tersambung dengan MALANG
   host -t PTR "IP MALANG"
   ```
 
 ![host](gambar/8.png)
-
 
 ### 8. Membuat DNS Server Slave pada MOJOKERTO
 
@@ -262,25 +252,21 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
 
   ![DNS](gambar/11.png)
 
-
-
 - Lakukan restart bind9
 
   ```
   service bind9 restart
   ```
 
-
-
 #### 8.2. Konfigurasi Pada Server MOJOKERTO
 
-- Buka *MOJOKERTO* dan update package lists dengan menjalankan command:
+- Buka _MOJOKERTO_ dan update package lists dengan menjalankan command:
 
   ```
   apt-get update
   ```
 
-- Setalah melakukan update silahkan install aplikasi bind9 pada *MOJOKERTO* dengan perintah:
+- Setalah melakukan update silahkan install aplikasi bind9 pada _MOJOKERTO_ dengan perintah:
 
   ```
   apt-get install bind9 -y
@@ -304,37 +290,29 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
   service bind9 restart
   ```
 
-
-
 #### 8.3. Testing
 
-- Pada server *MALANG* silahkan matikan service bind9
+- Pada server _MALANG_ silahkan matikan service bind9
 
   ```
   service bind9 stop
   ```
 
-- Pada client *GRESIK* pastikan pengaturan nameserver mengarah ke IP *MALANG* `10.151.79.42` dan IP *MOJOKERTO* `10.151.79.43`
+- Pada client _GRESIK_ pastikan pengaturan nameserver mengarah ke IP _MALANG_ `10.151.79.42` dan IP _MOJOKERTO_ `10.151.79.43`
 
   ![DNS](gambar/13.png)
 
-- Lakukan ping ke semerud04.pw pada client *GRESIK*. Jika ping berhasil maka konfigurasi DNS slave telah berhasil
-
+- Lakukan ping ke semerud04.pw pada client _GRESIK_. Jika ping berhasil maka konfigurasi DNS slave telah berhasil
 
 ![DNS](gambar/14.png)
-
-
-
-
-
 
 ### 1.2.H Delegasi Subdomain
 
 Delegasi subdomain adalah pemberian wewenang atas sebuah subdomain kepada DNS baru.
 
-#### I. Konfigurasi Pada Server *MALANG*
+#### I. Konfigurasi Pada Server _MALANG_
 
-- Pada *MALANG*, edit file **/etc/bind/jarkom/jarkom2020.com** dan ubah menjadi seperti di bawah ini sesuai dengan pembagian IP *MALANG* kelompok masing-masing.
+- Pada _MALANG_, edit file **/etc/bind/jarkom/jarkom2020.com** dan ubah menjadi seperti di bawah ini sesuai dengan pembagian IP _MALANG_ kelompok masing-masing.
 
   ```
   nano /etc/bind/jarkom/jarkom2020.com
@@ -342,7 +320,7 @@ Delegasi subdomain adalah pemberian wewenang atas sebuah subdomain kepada DNS ba
 
 ![DNS](gambar/17.png)
 
-- Kemudian edit file **/etc/bind/named.conf.options** pada *MALANG*.
+- Kemudian edit file **/etc/bind/named.conf.options** pada _MALANG_.
 
   ```
   nano /etc/bind/named.conf.options
@@ -353,7 +331,6 @@ Delegasi subdomain adalah pemberian wewenang atas sebuah subdomain kepada DNS ba
   ```
   allow-query{any;};
   ```
-
 
 ![DNS](gambar/18.png)
 
@@ -367,7 +344,6 @@ Delegasi subdomain adalah pemberian wewenang atas sebuah subdomain kepada DNS ba
   };
   ```
 
-
 ![DNS](gambar/19.png)
 
 - Setelah itu restart bind9
@@ -376,9 +352,9 @@ Delegasi subdomain adalah pemberian wewenang atas sebuah subdomain kepada DNS ba
   service bind9 restart
   ```
 
-#### II. Konfigurasi Pada Server *MOJOKERTO*
+#### II. Konfigurasi Pada Server _MOJOKERTO_
 
-- Pada *MOJOKERTO* edit file **/etc/bind/named.conf.options**
+- Pada _MOJOKERTO_ edit file **/etc/bind/named.conf.options**
 
   ```
   nano /etc/bind/named.conf.options
@@ -396,9 +372,9 @@ Delegasi subdomain adalah pemberian wewenang atas sebuah subdomain kepada DNS ba
 
 ![DNS](gambar/21.png)
 
-- Kemudian buat direktori dengan nama **delegasi** 
+- Kemudian buat direktori dengan nama **delegasi**
 
-- Copy **db.local** ke direktori pucang dan edit namanya menjadi **its.jarkom2020.com** 
+- Copy **db.local** ke direktori pucang dan edit namanya menjadi **its.jarkom2020.com**
 
   ```
   mkdir /etc/bind/delegasi
@@ -417,17 +393,15 @@ Delegasi subdomain adalah pemberian wewenang atas sebuah subdomain kepada DNS ba
 
 #### III. Testing
 
-- Lakukan ping ke domain **its.jarkom2020.com** dan **integra.its.jarkom2020.com** dari client *GRESIK*
+- Lakukan ping ke domain **its.jarkom2020.com** dan **integra.its.jarkom2020.com** dari client _GRESIK_
 
 ![DNS](gambar/23.png)
-
-
 
 ### 1.2.I DNS Forwarder
 
 DNS Forwarder digunakan untuk mengarahkan DNS Server ke IP yang ingin dituju.
 
-- Edit file **/etc/bind/named.conf.options** pada server *MALANG*
+- Edit file **/etc/bind/named.conf.options** pada server _MALANG_
 - Uncomment pada bagian ini
 
 ```
@@ -435,11 +409,13 @@ forwarders {
     8.8.8.8;
 };
 ```
+
 - Comment pada bagian ini
 
 ```
 // dnssec-validation auto;
 ```
+
 - Dan tambahkan
 
 ```
@@ -452,8 +428,6 @@ allow-query{any;};
 - Coba ping google.com pada GRESIK, kalau benar maka tetap bisa mendapatkan respon dari google
 
 ![DNS](gambar/25.png)
-
-
 
 ### 1.3 Keterangan Configurasi Zone file
 
@@ -478,14 +452,13 @@ allow-query{any;};
 
    Pada salah satu contoh di atas, dapat kita amati pada kolom keempat terdapat record yang menggunakan titik pada akhir kata dan ada yang tidak. Penggunaan titik berfungsi sebagai penentu FQDN (Fully-Qualified Domain Name) suatu domain.
 
-   Contohnya jika "**jarkom2020.com.**" di akhiri dengan titik maka akan dianggap sebagai FQDN dan akan dibaca sebagai "**jarkom2020.com**" , sedangkan ns1 di atas tidak menggunakan titik sehingga dia tidak terbaca sebagai FQDN. Maka ns1 akan di tambahkan di depan terhadap nilai $ORIGIN sehinga ns1 akan terbaca sebagai "**ns1.jarkom2020.com**" . Nilai $ORIGIN diambil dari penamaan zone yang terdapat pada  */etc/bind/named.conf.local*.
+   Contohnya jika "**jarkom2020.com.**" di akhiri dengan titik maka akan dianggap sebagai FQDN dan akan dibaca sebagai "**jarkom2020.com**" , sedangkan ns1 di atas tidak menggunakan titik sehingga dia tidak terbaca sebagai FQDN. Maka ns1 akan di tambahkan di depan terhadap nilai $ORIGIN sehinga ns1 akan terbaca sebagai "**ns1.jarkom2020.com**" . Nilai $ORIGIN diambil dari penamaan zone yang terdapat pada _/etc/bind/named.conf.local_.
 
 3. #### Penulisan Name Server (NS) record
 
-   Salah satu aturan penulisan NS record adalah dia harus menuju A record., bukan CNAME. 
-=======
+   Salah satu aturan penulisan NS record adalah dia harus menuju A record., bukan CNAME.
 
-8. Langkah awalnya dengan membuat direktori pada /var/www, dengan perintah `mkdir /var/www/semerud04.pw`. Setelah itu buatlah file config untuk file semerud04.pw, yaitu dengan menjalankan perintah `cp /etc/apache2/site-available/default /etc/apache2/sites-available/semerud04.pw`. Lalu buka file tersebut dengan `nano /etc/apache2/sites-available/semerud04.pw` dan ubah file menjadi seperti gambar dibawah ini : ![semerud04.pw](/img/no-8.png)
+4. Langkah awalnya dengan membuat direktori pada /var/www, dengan perintah `mkdir /var/www/semerud04.pw`. Setelah itu buatlah file config untuk file semerud04.pw, yaitu dengan menjalankan perintah `cp /etc/apache2/site-available/default /etc/apache2/sites-available/semerud04.pw`. Lalu buka file tersebut dengan `nano /etc/apache2/sites-available/semerud04.pw` dan ubah file menjadi seperti gambar dibawah ini : ![semerud04.pw](/img/no-8.png)
    Setelah itu, save dan exit. Lalu aktifkan file tersebut dengan perintah `a2ensite semerud04.pw` dan berikutnya perintah `service apache2 restart`.
 
 Lalu jalankan perintah berikut ini :
@@ -570,4 +543,3 @@ RewriteCond %{REQUEST_FILENAME} -f -> Mengecek apakah request image yang kita bu
 RewriteCond %{REQUEST_URI} ! /public/images/semeru.jpg [NC] -> mengecek apakah file yang sedang kita buka merupakan file semeru.jpg
 RewriteRule ^public/images/(.*)semeru(.*).jpg$ /public/images/$1semeru.jpg[L,R] -> Jika membuka file yang mengandung substring semeru pada folder /public/images, akan di redirect ke /public/images/semeru.jpg selama kedua kondisi diatas terpenuh
 ```
->>>>>>> Stashed changes
