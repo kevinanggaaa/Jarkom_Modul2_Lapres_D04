@@ -56,12 +56,9 @@ yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg.
 
 ## JAWABAN
 ### Membuat DNS
+- Membuat topologi berdasarkan foto pada soal.
 
-![Topologi](gambar/topologi.png)
-
-Seperti pada modul pengenalan UML
-
-### 1.2.A Instalasi bind
+### Instalasi bind
 
 - Buka *MALANG* dan update package lists dengan menjalankan command:
 
@@ -69,16 +66,14 @@ Seperti pada modul pengenalan UML
 	apt-get update
 	```
 
-- Setalah melakukan update silahkan install aplikasi bind9 pada *MALANG* dengan perintah:
+- Setalah melakukan update, install aplikasi bind9 pada *MALANG* dengan perintah:
 
 	```
 	apt-get install bind9 -y
 	```
 
-![instal bind9](gambar/1.png)
-
 ### 1.2.B Pembuatan Domain
-Pada Soal Shift 2 ini, Bibah ingin membuat domain **semerud04.pw**.
+Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud04.pw**.
 
 - Lakukan perintah pada *MALANG*. Isikan seperti berikut:
 
@@ -86,16 +81,14 @@ Pada Soal Shift 2 ini, Bibah ingin membuat domain **semerud04.pw**.
    nano /etc/bind/named.conf.local
   ```
 
-- Isikan configurasi domain **jarkom2020.com** sesuai dengan syntax berikut:
+- Isikan configurasi domain **semerud04.pw** sesuai dengan syntax berikut:
 
   ```
-  zone "jarkom2020.com" {
+  zone "semerud04.pw" {
   	type master;
-  	file "/etc/bind/jarkom/jarkom2020.com";
+  	file "/etc/bind/jarkom/semerud04.pw";
   };
   ```
-
-![config jarkom2020.com](gambar/2.png)
 
 - Buat folder **jarkom** di dalam **/etc/bind**
 
@@ -103,13 +96,13 @@ Pada Soal Shift 2 ini, Bibah ingin membuat domain **semerud04.pw**.
   mkdir /etc/bind/jarkom
   ```
 
-- Copykan file **db.local** pada path **/etc/bind** ke dalam folder **jarkom** yang baru saja dibuat dan ubah namanya menjadi **jarkom2020.com**
+- Copykan file **db.local** pada path **/etc/bind** ke dalam folder **jarkom** yang baru saja dibuat dan ubah namanya menjadi **semerud04.pw**
 
   ```
-  cp /etc/bind/db.local /etc/bind/jarkom/jarkom2020.com
+  cp /etc/bind/db.local /etc/bind/jarkom/semerud04.pw
   ```
 
-- Kemudian buka file **jarkom2020.com** dan edit seperti gambar berikut dengan IP *MALANG* masing-masing kelompok:
+- Kemudian buka file **semerud04.pw** dan edit seperti gambar berikut dengan IP *MALANG* , yaitu `10.151.79.42`
 
   ```
   nano /etc/bind/jarkom/jarkom2020.com
