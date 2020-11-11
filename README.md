@@ -114,7 +114,7 @@ Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud
   nano /etc/bind/jarkom/jarkom2020.com
   ```
 
-![konfig jarkom2020](gambar/3.png)
+![image](https://user-images.githubusercontent.com/60419316/98816196-e0141080-245a-11eb-9410-f21e587f6b40.png)
 
 - Restart bind9 dengan perintah
 
