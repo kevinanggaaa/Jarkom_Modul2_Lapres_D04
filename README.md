@@ -72,7 +72,7 @@ yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg.
 	apt-get install bind9 -y
 	```
 
-### 1.2.B Pembuatan Domain
+### Pembuatan Domain
 Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud04.pw**.
 
 - Lakukan perintah pada *MALANG*. Isikan seperti berikut:
@@ -115,18 +115,13 @@ Pada Soal Shift 2 ini, Bibah ingin membuat website utama dengan alamat **semerud
   ```
   service bind9 restart
   
-  ATAU
-  
-  named -g //Bisa digunakan untuk restart sekaligus debugging
   ```
-
-
-
-### 1.2.C Setting nameserver pada client
+  
+### Setting nameserver pada client
 
 Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu kita harus merubah settingan nameserver yang ada pada client kita.
 
-- Pada client *GRESIK* dan *SIDOARJO* arahkan nameserver menuju IP *MALANG* dengan mengedit file _resolv.conf_ dengan mengetikkan perintah 
+- Pada client *GRESIK* dan *SIDOARJO* arahkan nameserver menuju IP *MALANG* `10.151.79.42` dengan mengedit file _resolv.conf_ dengan mengetikkan perintah 
 
 	```
 	nano /etc/resolv.conf
@@ -134,7 +129,7 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
 
 ![ping](gambar/4.png)
 
-- Untuk mencoba koneksi DNS, lakukan ping domain **jarkom2020.com** dengan melakukan  perintah berikut pada client *GRESIK* dan *SIDOARJO*
+- Untuk mencoba koneksi DNS, lakukan ping domain **semerud04.pw** dengan melakukan  perintah berikut pada client *GRESIK* dan *SIDOARJO*
 
   ```
   ping jarkom2020.com
@@ -143,10 +138,56 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
 ![ping](gambar/5.png)
 
 
+### Menambah alias menggunakan Record CNAME
 
-### 1.2.D Reverse DNS (Record PTR)
+- Buka file **semerud04.pw** pada server *MALANG* dan tambahkan konfigurasi seperti pada gambar berikut:
 
-Jika pada pembuatan domain sebelumnya DNS server kita bekerja menerjemahkan string domain **jarkom2020.com** kedalam alamat IP agar dapat dibuka, maka Reverse DNS atau Record PTR digunakan untuk menerjemahkan alamat IP ke alamat domain yang sudah diterjemahkan sebelumnya.
+
+![DNS](gambar/9.png)
+
+
+
+- Kemudian restart bind9 dengan perintah
+
+  ```
+  service bind9 restart
+  ```
+
+- Lalu cek dengan melakukan **ping www.semerud04.pw**. Hasilnya harus mengarah ke host dengan IP *MALANG* `10.151.79.42`.
+
+
+![DNS](gambar/10.png)
+
+
+### Membuat Subdomain http://penanjakan.semeruyyy.pw yang diatur DNS-nya pada MALANG dan mengarah ke IP Server PROBOLINGGO `10.151.79.44`
+
+- Edit file **/etc/bind/jarkom/semerud04.pw** lalu tambahkan subdomain untuk **semerud04.pw** yang mengarah ke IP *MALANG*.
+
+  ```
+  nano /etc/bind/jarkom/semerud04.pw
+  ```
+
+- Tambahkan konfigurasi seperti pada gambar ke dalam file **semerud04.pw**.
+
+![DNS](gambar/15.png)
+
+- Restart service bind  
+
+  ```
+  service bind9 restart
+  ```
+
+- Coba ping ke subdomain dengan perintah berikut dari client *GRESIK*
+
+  ```
+  ping penanjakan.semerud04.pw
+  
+  ```
+
+  ![DNS](gambar/16.png)
+
+
+### Reverse domain untuk domain utama
 
 - Edit file **/etc/bind/named.conf.local** pada *MALANG*
 
@@ -157,23 +198,21 @@ Jika pada pembuatan domain sebelumnya DNS server kita bekerja menerjemahkan stri
 - Lalu tambahkan konfigurasi berikut ke dalam file **named.conf.local**
 
   ```
-  zone "71.151.10.in-addr.arpa" {
+  zone "79.151.10.in-addr.arpa" {
       type master;
-      file "/etc/bind/jarkom/71.151.10.in-addr.arpa";
+      file "/etc/bind/jarkom/79.151.10.in-addr.arpa";
   };
   ```
 
 ![](gambar/6.png)
 
-- Copykan file **db.local** pada path **/etc/bind** ke dalam folder **jarkom** yang baru saja dibuat dan ubah namanya menjadi **71.151.10.in-addr.arpa**
+- Copykan file **db.local** pada path **/etc/bind** ke dalam folder **jarkom** yang baru saja dibuat dan ubah namanya menjadi **79.151.10.in-addr.arpa**
 
   ```
-  cp /etc/bind/db.local /etc/bind/jarkom/71.151.10.in-addr.arpa
+  cp /etc/bind/db.local /etc/bind/jarkom/79.151.10.in-addr.arpa
   ```
 
-  *Keterangan 71.151.10 adalah 3 byte pertama IP MALANG yang dibalik urutan penulisannya*
-
-- Edit file **71.151.10.in-addr.arpa** menjadi seperti gambar di bawah ini
+- Edit file **79.151.10.in-addr.arpa** menjadi seperti gambar di bawah ini
 
 
 ![konfig](gambar/7.png)
@@ -199,47 +238,19 @@ Jika pada pembuatan domain sebelumnya DNS server kita bekerja menerjemahkan stri
 ![host](gambar/8.png)
 
 
+### Membuat DNS Server Slave pada MOJOKERTO
 
-### 1.2.E Record CNAME
-Record CNAME adalah sebuah record yang membuat alias name dan mengarahkan domain ke alamat/domain yang lain.
-
-Langkah-langkah membuat record CNAME:
-
-- Buka file **jarkom2020.com** pada server *MALANG* dan tambahkan konfigurasi seperti pada gambar berikut:
-
-
-![DNS](gambar/9.png)
-
-
-
-- Kemudian restart bind9 dengan perintah
-
-  ```
-  service bind9 restart
-  ```
-
-- Lalu cek dengan melakukan **host -t CNAME www.jarkom2020.com** atau **ping www.jarkom2020.com**. Hasilnya harus mengarah ke host dengan IP *MALANG*.
-
-
-![DNS](gambar/10.png)
-
-
-
-### 1.2.F Membuat DNS Slave
-
-DNS Slave adalah DNS cadangan yang akan diakses jika server DNS utama mengalami kegagalan. Kita akan menjadikan server *MOJOKERTO* sebagai DNS slave dan server *MALANG* sebagai DNS masternya.
-
-#### I. Konfigurasi Pada Server MALANG
+#### Konfigurasi Pada Server MALANG
 
 - Edit file **/etc/bind/named.conf.local** dan sesuaikan dengan syntax berikut
 
   ```
-  zone "jarkom2020.com" {
+  zone "semerud04.pw" {
       type master;
       notify yes;
-      also-notify { "IP MOJOKERTO"; }; // Masukan IP MOJOKERTO tanpa tanda petik
-      allow-transfer { "IP MOJOKERTO"; }; // Masukan IP MOJOKERTO tanpa tanda petik
-      file "/etc/bind/jarkom/jarkom2020.com";
+      also-notify { 10.151.79.43; }; // Masukan IP MOJOKERTO tanpa tanda petik
+      allow-transfer { 10.151.79.43; }; // Masukan IP MOJOKERTO tanpa tanda petik
+      file "/etc/bind/jarkom/semerud04.pw";
   };
   ```
 
@@ -272,10 +283,10 @@ DNS Slave adalah DNS cadangan yang akan diakses jika server DNS utama mengalami 
 - Kemudian buka file **/etc/bind/named.conf.local** pada MOJOKERTO dan tambahkan syntax berikut:
 
   ```
-  zone "jarkom2020.com" {
+  zone "semerud04.pw" {
       type slave;
-      masters { "IP MALANG"; }; // Masukan IP MALANG tanpa tanda petik
-      file "/var/lib/bind/jarkom2020.com";
+      masters { 10.151.79.42; }; // Masukan IP MALANG tanpa tanda petik
+      file "/var/lib/bind/semerud04.pw";
   };
   ```
 
@@ -308,37 +319,6 @@ DNS Slave adalah DNS cadangan yang akan diakses jika server DNS utama mengalami 
 
 
 
-### 1.2.G Membuat Subdomain
-
-Subdomain adalah bagian dari sebuah nama domain induk. Subdomain umumnya mengacu ke suatu alamat fisik di sebuah situs contohnya: **jarkom2020.com** merupakan sebuah domain induk. Sedangkan **neko.jarkom2020.com** merupakan sebuah subdomain.
-
-- Edit file **/etc/bind/jarkom/jarkom2020.com** lalu tambahkan subdomain untuk **jarkom2020.com** yang mengarah ke IP *MALANG*.
-
-  ```
-  nano /etc/bind/jarkom/jarkom2020.com
-  ```
-
-- Tambahkan konfigurasi seperti pada gambar ke dalam file **jarkom2020.com**.
-
-![DNS](gambar/15.png)
-
-- Restart service bind  
-
-  ```
-  service bind9 restart
-  ```
-
-- Coba ping ke subdomain dengan perintah berikut dari client *GRESIK*
-
-  ```
-  ping neko.jarkom2020.com
-  
-  ATAU
-  
-  host -t A neko.jarkom2020.com
-  ```
-
-  ![DNS](gambar/16.png)
 
 
 
