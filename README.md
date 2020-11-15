@@ -470,14 +470,16 @@ Akses website http://naik.penanjakan.semerud04.pw:8888, sehingga akan menampilka
 ### 15. Buat web http://naik.gunung.semeruyyy.pw agar diberi autentikasi password dengan username “semeru” dan password “kuynaikgunung”
 Jalankan perintah `htpasswd -c /etc/apache2/htpasswd semeru` dan isi password dengan `kuynaikgunung`. Lalu ubah file menjadi seperti berikut ini : ![semerud04.pw](/img/no-15.png) Lalu restart dengan `service apache2 restart`. Akses website http://naik.penanjakan.semerud04.pw:8888, sehingga akan menampilkan : ![semerud04.pw](/img/no-15-part-2.png). Dan ketika berhasil masuk akan menjadi seperti ini ![semerud04.pw](/img/no-15-part-3.png)
 
-16. Jalankan `nano /etc/apache2/sites-available/default` dan ubah file menjadi berikut : ![semerud04.pw](/img/no-16.png) Restart dengan `service apache2 restart` dan akses http://10.151.79.44/ sehingga akan menampilkan ![semerud04.pw](/img/no-16-part-2.png)
+### 16. mengunjungi IP PROBOLINGGO akan dialihkan secara otomatis ke http://semeruyyy.pw.
+Jalankan `nano /etc/apache2/sites-available/default` dan ubah file menjadi berikut : ![semerud04.pw](/img/no-16.png) Restart dengan `service apache2 restart` dan akses http://10.151.79.44/ sehingga akan menampilkan ![semerud04.pw](/img/no-16-part-2.png)
 
-17. Buka file .htaccess pada /var/www/penanjakan.semerud04.pw dan ubah menjadi seperti berikut isi filenya : ![image](https://user-images.githubusercontent.com/60419316/99180730-82820b80-275b-11eb-88d7-cb83a86d52e3.png)
+### 17. semua request gambar yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg. 
+Buka file .htaccess pada /var/www/penanjakan.semerud04.pw dan ubah menjadi seperti berikut isi filenya : ![image](https://user-images.githubusercontent.com/60419316/99180730-82820b80-275b-11eb-88d7-cb83a86d52e3.png)
 
 ```
 Keterangan:
 RewriteEngine On -> mengaktifkan modul rewrite pada apache
 RewriteCond %{REQUEST_FILENAME} -f -> Mengecek apakah request image yang kita buat memang ada di folder /public/images
 RewriteCond %{REQUEST_URI} ! /public/images/semeru.jpg [NC] -> mengecek apakah file yang sedang kita buka merupakan file semeru.jpg
-RewriteRule ^public/images/(.*)semeru(.*).jpg$ /public/images/$1semeru.jpg[L,R] -> Jika membuka file yang mengandung substring semeru pada folder /public/images, akan di redirect ke /public/images/semeru.jpg selama kedua kondisi diatas terpenuh
+RewriteRule ^public/images/(.*)semeru(.*).jpg$ /public/images/semeru.jpg[L,R] -> Jika membuka file yang mengandung substring semeru pada folder /public/images, akan di redirect ke /public/images/semeru.jpg selama kedua kondisi diatas terpenuh
 ```
