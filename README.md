@@ -1,5 +1,9 @@
 # Jarkom_Modul2_Lapres_D04
 
+## Tim D4
+## Kevin Angga Wijaya - 05111840000024
+## Samuel C. Y. Sinambela -05111840000036
+
 ## SOAL
 
 ![image](https://user-images.githubusercontent.com/60419316/98804307-99b5b600-2448-11eb-9010-68e7223879b8.png)
