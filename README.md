@@ -389,8 +389,9 @@ Domain yang kita buat tidak akan langsung dikenali oleh client oleh sebab itu ki
 ![image](https://user-images.githubusercontent.com/60419316/98819808-ee186000-245f-11eb-8238-20a15627c3a8.png)
 
 ### 8. Domain http://semeruyyy.pw memiliki DocumentRoot pada /var/www/semeruyyy.pw.
-Langkah awalnya dengan membuat direktori pada /var/www, dengan perintah `mkdir /var/www/semerud04.pw`. Setelah itu buatlah file config untuk file semerud04.pw, yaitu dengan menjalankan perintah `cp /etc/apache2/site-available/default /etc/apache2/sites-available/semerud04.pw`. Lalu buka file tersebut dengan `nano /etc/apache2/sites-available/semerud04.pw` dan ubah file menjadi seperti gambar dibawah ini : ![semerud04.pw](/img/no-8.png)
-   Setelah itu, save dan exit. Lalu aktifkan file tersebut dengan perintah `a2ensite semerud04.pw` dan berikutnya perintah `service apache2 restart`.
+Langkah awalnya dengan membuat direktori pada /var/www, dengan perintah `mkdir /var/www/semerud04.pw`. Setelah itu buatlah file config untuk file semerud04.pw, yaitu dengan menjalankan perintah `cp /etc/apache2/site-available/default /etc/apache2/sites-available/semerud04.pw`. Lalu buka file tersebut dengan `nano /etc/apache2/sites-available/semerud04.pw` dan ubah file menjadi seperti gambar dibawah ini :  
+![semerud04.pw](/img/no-8.png)  
+Setelah itu, save dan exit. Lalu aktifkan file tersebut dengan perintah `a2ensite semerud04.pw` dan berikutnya perintah `service apache2 restart`.
 
 Lalu jalankan perintah berikut ini :
 
@@ -403,12 +404,14 @@ mv * ../
 rm -r semeru.pw semeru.pw.zip
 ```
 
-Struktur folder semerud04.pw akan terlihat sebagai berikut: ![semerud04.pw](/img/no-8-part-2.png)
-Akses website http://semerud04.pw/index.php/home, sehingga akan menampilkan : ![semerud04.pw](/img/no-8-part-3.png)
+Struktur folder semerud04.pw akan terlihat sebagai berikut:  
+![semerud04.pw](/img/no-8-part-2.png)  
+Akses website http://semerud04.pw/index.php/home, sehingga akan menampilkan :  
+![semerud04.pw](/img/no-8-part-3.png)
 
 ### 9. Aktifkan mod rewrite agar urlnya menjadi http://semeruyyy.pw/home. 
-Buatlah file .htaccess pada folder /var/www/semerud04.pw. Dan isikan file tersebut seperti pada gambar berikut:
-   ![semerud04.pw](/img/no-9.png)
+Buatlah file .htaccess pada folder /var/www/semerud04.pw. Dan isikan file tersebut seperti pada gambar berikut:  
+![semerud04.pw](/img/no-9.png)
 
 ```
 Keterangan:
@@ -418,8 +421,9 @@ RewriteRule &([^\.]+)$ index.php/$1 [NC,L] -> segala url yang berawalan /index.p
 ```
 
 ### 10. http://penanjakan.semeruyyy.pw akan digunakan untuk menyimpan assets file yang memiliki DocumentRoot pada /var/www/penanjakan.semeruyyy.pw dan struktur sesuai perintah
-Langkah awalnya dengan membuat direktori pada /var/www, dengan perintah `mkdir /var/www/penanjakan.semerud04.pw`. Setelah itu buatlah file config untuk file semerud04.pw, yaitu dengan menjalankan perintah `cp /etc/apache2/site-available/default /etc/apache2/sites-available/penanjakan.semerud04.pw`. Lalu buka file tersebut dengan `nano /etc/apache2/sites-available/penanjakan.semerud04.pw` dan ubah file menjadi seperti gambar dibawah ini : ![semerud04.pw](/img/no-10.png)
-    Setelah itu, save dan exit. Lalu aktifkan file tersebut dengan perintah `a2ensite semerud04.pw` dan berikutnya perintah `service apache2 restart`.
+Langkah awalnya dengan membuat direktori pada /var/www, dengan perintah `mkdir /var/www/penanjakan.semerud04.pw`. Setelah itu buatlah file config untuk file semerud04.pw, yaitu dengan menjalankan perintah `cp /etc/apache2/site-available/default /etc/apache2/sites-available/penanjakan.semerud04.pw`. Lalu buka file tersebut dengan `nano /etc/apache2/sites-available/penanjakan.semerud04.pw` dan ubah file menjadi seperti gambar dibawah ini :  
+![semerud04.pw](/img/no-10.png)  
+Setelah itu, save dan exit. Lalu aktifkan file tersebut dengan perintah `a2ensite semerud04.pw` dan berikutnya perintah `service apache2 restart`.
 
 Lalu jalankan perintah berikut ini :
 
@@ -432,25 +436,36 @@ mv * ../
 rm -r penanjakan.semeru.pw penanjakan.semeru.pw.zip
 ```
 
-Struktur folder semerud04.pw akan terlihat sebagai berikut: ![semerud04.pw](/img/no-10-part-2.png)
-Akses website http://penanjakan.semerud04.pw, sehingga akan menampilkan : ![semerud04.pw](/img/no-10-part-3.png)
+Struktur folder semerud04.pw akan terlihat sebagai berikut:  
+![semerud04.pw](/img/no-10-part-2.png)  
+Akses website http://penanjakan.semerud04.pw, sehingga akan menampilkan :  
+![semerud04.pw](/img/no-10-part-3.png)
 
 ### 11. Pada folder /public dibolehkan directory listing namun untuk folder yang berada di dalamnya tidak dibolehkan.
-Ketikkan `nano /etc/apache2/sites-available/penanjakan.semerud04.pw` dan ubah file menjadi seperti berikut ini: ![semerud04.pw](/img/no-11.png)
-    Restart dengan `service apache2 restart`.
-    Lalu akses melalu http://penanjakan.semerud04.pw/public, sehingga akan menampilkan ![semerud04.pw](/img/no-11-part-2.png)Lalu akses lagi salah satu folder seperti http://penanjakan.semerud04.pw/public/css dan akan menampilkan ![semerud04.pw](/img/no-11-part-3.png)
+Ketikkan `nano /etc/apache2/sites-available/penanjakan.semerud04.pw` dan ubah file menjadi seperti berikut ini:  
+![semerud04.pw](/img/no-11.png)
+Restart dengan `service apache2 restart`.  
+Lalu akses melalu http://penanjakan.semerud04.pw/public, sehingga akan menampilkan ![semerud04.pw](/img/no-11-part-2.png)Lalu akses lagi salah satu folder seperti http://penanjakan.semerud04.pw/public/css dan akan menampilkan  
+![semerud04.pw](/img/no-11-part-3.png)
 
 ### 12. Untuk mengatasi HTTP Error code 404, disediakan file 404.html pada folder /errors
-Untuk menampilkan custom file error, buat file .htaccess pada folder /var/www/penanjakan.semerud04.pw, lalu isi file seperti berikut ini:  
-    ![semerud04.pw](/img/no-12.png)
-    Lalu simpan dan buka url http://penanjakan.semerud04.pw/public/css/imagess sehingga akan menampilkan ![semerud04.pw](/img/no-12-part-2.png)
+Untuk menampilkan custom file error, buat file .htaccess pada folder /var/www/penanjakan.semerud04.pw, lalu isi file seperti berikut ini:   
+![semerud04.pw](/img/no-12.png)  
+Lalu simpan dan buka url http://penanjakan.semerud04.pw/public/css/imagess sehingga akan menampilkan   
+![semerud04.pw](/img/no-12-part-2.png)
 
 ### 13. Buatkan konfigurasi virtual host agar ketika mengakses file assets menjadi http://penanjakan.semeruyyy.pw/js.
-Jalankan perintah `nano /etc/apache2/sites-available/penanjakan.semerud04.pw`. Lalu ubah isi file pada bagian Alias /js seperti pada gambar. ![semerud04.pw](/img/no-13.png)
-    Lalu restart dengan `service apache2 restart`. Akses url http://penanjakan.semerud04.pw/js/index.js sehingga akan menampilkan ![semerud04.pw](/img/no-13-part-2.png)
+Jalankan perintah `nano /etc/apache2/sites-available/penanjakan.semerud04.pw`. Lalu ubah isi file pada bagian Alias /js seperti pada gambar.  
+![semerud04.pw](/img/no-13.png)  
+Lalu restart dengan `service apache2 restart`. Akses url http://penanjakan.semerud04.pw/js/index.js sehingga akan menampilkan   
+![semerud04.pw](/img/no-13-part-2.png)
 
 ### 14. web http://naik.gunung.semeruyyy.pw sudah bisa diakses hanya dengan menggunakan port 8888. DocumentRoot web berada pada /var/www/naik.gunung.semeruyyy.pw. Dikarenakan web http://naik.gunung.semeruyyy.pw bersifat private
-Jalankan perintah `nano /etc/apache2/ports.conf`. Lalu ubah file seperti berikut ![semerud04.pw](/img/no-14.png) Setelah itu membuat direktori pada /var/www, dengan perintah `mkdir /var/www/naik.gunung.semerud04.pw`. Setelah itu buatlah file config untuk file semerud04.pw, yaitu dengan menjalankan perintah `cp /etc/apache2/site-available/default /etc/apache2/sites-available/naik.gunung.semerud04.pw`. Lalu buka file tersebut dengan `nano /etc/apache2/sites-available/naik.gunung.semerud04.pw` dan ubah file menjadi seperti gambar dibawah ini : ![semerud04.pw](/img/no-14-part-2.png) Setelah itu, save dan exit. Lalu aktifkan file tersebut dengan perintah `a2ensite naik.gunung.semerud04.pw` dan berikutnya perintah `service apache2 restart`.
+Jalankan perintah `nano /etc/apache2/ports.conf`. Lalu ubah file seperti berikut  
+![semerud04.pw](/img/no-14.png)  
+Setelah itu membuat direktori pada /var/www, dengan perintah `mkdir /var/www/naik.gunung.semerud04.pw`. Setelah itu buatlah file config untuk file semerud04.pw, yaitu dengan menjalankan perintah `cp /etc/apache2/site-available/default /etc/apache2/sites-available/naik.gunung.semerud04.pw`. Lalu buka file tersebut dengan `nano /etc/apache2/sites-available/naik.gunung.semerud04.pw` dan ubah file menjadi seperti gambar dibawah ini :  
+![semerud04.pw](/img/no-14-part-2.png)  
+Setelah itu, save dan exit. Lalu aktifkan file tersebut dengan perintah `a2ensite naik.gunung.semerud04.pw` dan berikutnya perintah `service apache2 restart`.
 
 Lalu jalankan perintah berikut ini :
 
@@ -463,18 +478,28 @@ mv * ../
 rm -r semeru naik.gunung.semeru.pw.zip
 ```
 
-Struktur folder naik.gunung.semerud04.pw akan terlihat sebagai berikut: ![semerud04.pw](/img/no-14-part-3.png)
-Akses website http://naik.penanjakan.semerud04.pw:8888, sehingga akan menampilkan :
+Struktur folder naik.gunung.semerud04.pw akan terlihat sebagai berikut:  
+![semerud04.pw](/img/no-14-part-3.png)
+Akses website http://naik.penanjakan.semerud04.pw:8888, sehingga akan menampilkan :  
 ![semerud04.pw](/img/no-14-part-4.png)
 
 ### 15. Buat web http://naik.gunung.semeruyyy.pw agar diberi autentikasi password dengan username “semeru” dan password “kuynaikgunung”
-Jalankan perintah `htpasswd -c /etc/apache2/htpasswd semeru` dan isi password dengan `kuynaikgunung`. Lalu ubah file menjadi seperti berikut ini : ![semerud04.pw](/img/no-15.png) Lalu restart dengan `service apache2 restart`. Akses website http://naik.penanjakan.semerud04.pw:8888, sehingga akan menampilkan : ![semerud04.pw](/img/no-15-part-2.png). Dan ketika berhasil masuk akan menjadi seperti ini ![semerud04.pw](/img/no-15-part-3.png)
+Jalankan perintah `htpasswd -c /etc/apache2/htpasswd semeru` dan isi password dengan `kuynaikgunung`. Lalu ubah file menjadi seperti berikut ini :  
+![semerud04.pw](/img/no-15.png)  
+Lalu restart dengan `service apache2 restart`. Akses website http://naik.penanjakan.semerud04.pw:8888, sehingga akan menampilkan :  
+![semerud04.pw](/img/no-15-part-2.png)  
+Dan ketika berhasil masuk akan menjadi seperti ini  
+![semerud04.pw](/img/no-15-part-3.png)
 
 ### 16. mengunjungi IP PROBOLINGGO akan dialihkan secara otomatis ke http://semeruyyy.pw.
-Jalankan `nano /etc/apache2/sites-available/default` dan ubah file menjadi berikut : ![semerud04.pw](/img/no-16.png) Restart dengan `service apache2 restart` dan akses http://10.151.79.44/ sehingga akan menampilkan ![semerud04.pw](/img/no-16-part-2.png)
+Jalankan `nano /etc/apache2/sites-available/default` dan ubah file menjadi berikut :  
+![semerud04.pw](/img/no-16.png)  
+Restart dengan `service apache2 restart` dan akses http://10.151.79.44/ sehingga akan menampilkan  
+![semerud04.pw](/img/no-16-part-2.png)
 
 ### 17. semua request gambar yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg. 
-Buka file .htaccess pada /var/www/penanjakan.semerud04.pw dan ubah menjadi seperti berikut isi filenya : ![image](https://user-images.githubusercontent.com/60419316/99180730-82820b80-275b-11eb-88d7-cb83a86d52e3.png)
+Buka file .htaccess pada /var/www/penanjakan.semerud04.pw dan ubah menjadi seperti berikut isi filenya :  
+![image](https://user-images.githubusercontent.com/60419316/99180730-82820b80-275b-11eb-88d7-cb83a86d52e3.png)
 
 ```
 Keterangan:
